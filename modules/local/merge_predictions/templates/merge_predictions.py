@@ -197,7 +197,7 @@ class PredictionResult:
         df = pd.read_csv(self.file_path, sep='\t', skiprows=1)
         # Extract Peptide, percentile rank, binding affinity
         df = df[df.columns[df.columns.str.contains('Peptide|BA_Rank|BA-score')]]
-        df = df.rename(columns={'Peptide':self.peptide_col_name,'EL_Rank':'EL_Rank.0','BA-score':'BA-score.0'})
+        df = df.rename(columns={'Peptide':self.peptide_col_name,'BA_Rank':'BA_Rank.0','BA-score':'BA-score.0'})
         # to longformat based on .0|1|2..
         df_long = pd.melt(
             df,
